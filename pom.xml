@@ -42,12 +42,12 @@
 				<repository>
 					<id>reposilite-repository-releases</id>
 					<name>Reposilite Repository</name>
-					<url>http://IP_VM:8081/releases</url>
+					<url>http://172.16.44.87:8081/releases</url>
 				</repository>
 				<snapshotRepository>
 					<id>reposilite-repository-snapshots</id>
 					<name>Reposilite Repository</name>
-					<url>http://IP_VM:8081/snapshots</url>
+					<url>http://172.16.44.87:8081/snapshots</url>
 				</snapshotRepository>
 	</distributionManagement>
 </project>
