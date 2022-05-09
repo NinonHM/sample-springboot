@@ -1,6 +1,8 @@
 node{
-    stage('Build') {
-        checkout SCM
+
+    stage("Checkout Source Code"){
+        echo "Checkout Source Code"
+        checkout scm
     }
     stage('Test'){
        sh "mvn test"
@@ -11,8 +13,10 @@ node{
     stage('Upload'){
         sh "mvn deploy"
     }
-    configFileProvider([configFile(fileId: id_config, variable: 'MAVEN_SETTINGS')]) {
-    sh "mvn -s $MAVEN_SETTINGS -Preposilite"
+    stage('Config'){
+        configFileProvider([configFile(fileId: "28aa9f49-c590-45e9-9fae-b92c78f6c453", variable: 'MAVEN_SETTINGS')]) {
+        sh "mvn -s $MAVEN_SETTINGS -Preposilite"
+        }
     }
 }
 
