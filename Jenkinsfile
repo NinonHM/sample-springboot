@@ -11,6 +11,9 @@ node{
     stage('Upload'){
         sh "mvn deploy"
     }
+    configFileProvider([configFile(fileId: id_config, variable: 'MAVEN_SETTINGS')]) {
+    sh "mvn -s $MAVEN_SETTINGS -Preposilite"
+    }
 }
 
 
