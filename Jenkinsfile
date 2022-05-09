@@ -14,10 +14,8 @@ node{
         configFileProvider([configFile(fileId: "28aa9f49-c590-45e9-9fae-b92c78f6c453", variable: 'MAVEN_SETTINGS')]) {
         // Exécuter la commande mvn avec le settings
         sh "mvn -s $MAVEN_SETTINGS -Preposilite"
-}
-        
-    }
-    
+        }    
+    }  
 }
 
 
