@@ -4,16 +4,16 @@ node{
         echo "Checkout Source Code"
         checkout scm
     }
-    stage('Test'){
+    stage("Run unit tests"){
        sh "mvn test"
     }
-    stage('Package'){
+    stage("Build artifact"){
         sh "mvn package -DskipTests"
     }
-    stage('Upload'){
+    stage("Deploy"){
         sh "mvn deploy"
     }
-    stage('Config'){
+    stage("configFileProvider"){
         configFileProvider([configFile(fileId: "28aa9f49-c590-45e9-9fae-b92c78f6c453", variable: 'MAVEN_SETTINGS')]) {
         sh "mvn -s $MAVEN_SETTINGS -Preposilite"
         }
